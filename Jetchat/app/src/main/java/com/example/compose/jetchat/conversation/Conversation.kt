@@ -93,6 +93,7 @@ import com.example.compose.jetchat.FunctionalityNotAvailablePopup
 import com.example.compose.jetchat.R
 import com.example.compose.jetchat.components.JetchatAppBar
 import com.example.compose.jetchat.data.exampleUiState
+import com.example.compose.jetchat.privacychat.PrivateChatUiState
 import com.example.compose.jetchat.theme.JetchatTheme
 import kotlinx.coroutines.launch
 
@@ -577,4 +578,4 @@ fun DayHeaderPrev() {
     DayHeader("Aug 6")
 }
 
-private val JumpToBottomThreshold = 56.dp
+val JumpToBottomThreshold = 56.dp

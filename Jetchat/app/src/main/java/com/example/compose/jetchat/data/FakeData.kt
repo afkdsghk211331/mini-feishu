@@ -24,6 +24,7 @@ import com.example.compose.jetchat.data.EMOJIS.EMOJI_FLAMINGO
 import com.example.compose.jetchat.data.EMOJIS.EMOJI_MELTING
 import com.example.compose.jetchat.data.EMOJIS.EMOJI_PINK_HEART
 import com.example.compose.jetchat.data.EMOJIS.EMOJI_POINTS
+import com.example.compose.jetchat.privacychat.PrivateChatUiState
 import com.example.compose.jetchat.profile.ProfileScreenState
 
 val initialMessages = listOf(
@@ -88,6 +89,16 @@ val exampleUiState = ConversationUiState(
     channelMembers = 42
 )
 
+
+val exampleChatUiState = PrivateChatUiState(
+    contactName = "Taylor Brooks",
+    contactAvatar = R.drawable.someone_else,
+    isOnline = true,
+    initialMessages = listOf(
+        Message("Taylor Brooks", "Hello!", "12:30 PM")
+    )
+)
+
 /**
  * Example colleague profile
  */
@@ -101,6 +112,7 @@ val colleagueProfile = ProfileScreenState(
     twitter = "twitter.com/taylorbrookscodes",
     timeZone = "12:25 AM local time (Eastern Daylight Time)",
     commonChannels = "2"
+
 )
 
 /**

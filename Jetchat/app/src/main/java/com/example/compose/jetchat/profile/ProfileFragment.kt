@@ -44,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.compose.jetchat.FunctionalityNotAvailablePopup
 import com.example.compose.jetchat.MainViewModel
 import com.example.compose.jetchat.R
@@ -54,7 +55,6 @@ class ProfileFragment : Fragment() {
 
     private val viewModel: ProfileViewModel by viewModels()
     private val activityViewModel: MainViewModel by activityViewModels()
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         // Consider using safe args plugin
@@ -69,9 +69,10 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val rootView: View = inflater.inflate(R.layout.fragment_profile, container, false)
-
+        val navController = findNavController()
         rootView.findViewById<ComposeView>(R.id.toolbar_compose_view).apply {
             setContent {
+
                 var functionalityNotAvailablePopupShown by remember { mutableStateOf(false) }
                 if (functionalityNotAvailablePopupShown) {
                     FunctionalityNotAvailablePopup { functionalityNotAvailablePopupShown = false }
@@ -113,7 +114,11 @@ class ProfileFragment : Fragment() {
                     } else {
                         ProfileScreen(
                             userData = userData!!,
-                            nestedScrollInteropConnection = nestedScrollInteropConnection
+                            nestedScrollInteropConnection = nestedScrollInteropConnection,
+                            onNavigateToChat = {
+                                // ✅ 正确的导航调用
+                                navController.navigate(R.id.privateConversationFragment)
+                            },
                         )
                     }
                 }

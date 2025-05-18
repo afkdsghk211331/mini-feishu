@@ -64,6 +64,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.compose.jetchat.FunctionalityNotAvailablePopup
 import com.example.compose.jetchat.R
 import com.example.compose.jetchat.components.AnimatingFabContent
@@ -76,6 +77,7 @@ import com.example.compose.jetchat.theme.JetchatTheme
 @Composable
 fun ProfileScreen(
     userData: ProfileScreenState,
+    onNavigateToChat: () -> Unit,
     nestedScrollInteropConnection: NestedScrollConnection = rememberNestedScrollInteropConnection()
 ) {
     var functionalityNotAvailablePopupShown by remember { mutableStateOf(false) }
@@ -114,7 +116,11 @@ fun ProfileScreen(
                 .align(Alignment.BottomEnd)
                 // Offsets the FAB to compensate for CoordinatorLayout collapsing behaviour
                 .offset(y = ((-100).dp)),
-            onFabClicked = { functionalityNotAvailablePopupShown = true }
+            onFabClicked = onNavigateToChat
+            //onFabClicked = {
+             //   navController.navigate(R.id.privateConversationFragment)
+
+            //}
         )
     }
 }
@@ -273,7 +279,7 @@ fun ProfileFab(
         }
     }
 }
-
+/**
 @Preview(widthDp = 640, heightDp = 360)
 @Composable
 fun ConvPreviewLandscapeMeDefault() {
@@ -305,3 +311,4 @@ fun ProfileFabPreview() {
         ProfileFab(extended = true, userIsMe = false)
     }
 }
+ */

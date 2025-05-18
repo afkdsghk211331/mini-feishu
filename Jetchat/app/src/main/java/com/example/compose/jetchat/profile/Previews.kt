@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.compose.jetchat.data.colleagueProfile
 import com.example.compose.jetchat.data.meProfile
 import com.example.compose.jetchat.theme.JetchatTheme
-
+/**
 @Preview(widthDp = 340, name = "340 width - Me")
 @Composable
 fun ProfilePreview340() {
@@ -68,3 +68,4 @@ fun ProfilePreview480OtherDark() {
         ProfileScreen(colleagueProfile)
     }
 }
+*/
